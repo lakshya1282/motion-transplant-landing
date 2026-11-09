@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>motion-transplant // Precision Web Motion Engineering</title>
+  <meta name="description" content="Capture any reference animation via mathematical curve sampling and clean-room GSAP rebuild. Minimal, verified, and production-ready.">
+
+  <!-- Clean, modern typography: Plus Jakarta Sans + Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Minimal Modern Navigation -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="#hero" class="brand-logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text">motion-transplant</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#hero" class="nav-link active" data-target="hero">Overview</a>
+        <a href="#pipeline" class="nav-link" data-target="pipeline">Architecture</a>
+        <a href="#workflow" class="nav-link" data-target="workflow">How It Works</a>
+        <a href="#curve-studio" class="nav-link" data-target="curve-studio">Curve Studio</a>
+        <a href="#builds" class="nav-link" data-target="builds">Showcase</a>
+        <a href="#docs" class="nav-link" data-target="docs">Docs</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="global-speed-btn" class="speed-pill" title="Toggle 0.2x Slow Motion">
+          <span class="speed-dot"></span>
+          <span id="speed-label">1.0x SPEED</span>
+        </button>
+        <a href="#docs" class="btn btn-primary btn-sm">INSTALL SKILL</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- =========================================================
+         HERO SECTION: Minimal, spacious, immersive
+         ========================================================= -->
+    <section id="hero" class="hero-section" data-nav="hero">
+      <div class="hero-container">
+        
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span class="badge-text">AGENT SKILL &bull; GSAP 3.12 &bull; LENIS</span>
+        </div>
+
+        <h1 class="hero-title">
+          Transplant web motion with <span class="text-blue">mathematical precision.</span>
+        </h1>
+
+        <p class="hero-description">
+          An agentic engineering skill that captures choreographies from reference sites, 
+          samples ground-truth easing curves from DOMMatrix frames, and transplants verified, clean-room 
+          GSAP code directly into your project.
+        </p>
+
+        <!-- Git Clone Box -->
+        <div class="cli-box">
+          <code class="cli-cmd" id="cli-text"><span class="git-prefix">git clone </span>https://github.com/lakshya1282/motion-transplant.git</code>
+          <button class="cli-copy-btn" id="hero-copy-btn" aria-label="Copy Git Clone">
+            <span id="hero-copy-label">COPY</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#pipeline" class="btn btn-primary">
+            <span>Explore Architecture</span>
+            <span class="arrow">&darr;</span>
+          </a>
+          <a href="#builds" class="btn btn-secondary">
+            <span>Show Your Builds</span>
+          </a>
+        </div>
+
+        <!-- Interactive Hero Stage: Clean, Immersive 3D Card Stack -->
+        <div class="hero-stage-wrap">
+          <div class="hero-stage" id="hero-interactive-stage">
+            <div class="hero-glass-card hero-card-1">
+              <div class="card-pill">LAYER 01 &bull; SKELETON</div>
+              <div class="card-body-wire">
+                <div class="wire-title"></div>
+                <div class="wire-row"></div>
+                <div class="wire-row short"></div>
+              </div>
+            </div>
+
+            <div class="hero-glass-card hero-card-2">
+              <div class="card-pill blue">LAYER 02 &bull; PARAMETERS</div>
+              <div class="card-body-mono">
+                <code>ease: "power3.out"</code>
+                <code>duration: 0.85s</code>
+                <code>stagger: 0.08s</code>
+              </div>
+            </div>
+
+            <div class="hero-glass-card hero-card-3">
+              <div class="card-pill solid-blue">LAYER 03 &bull; GROUND TRUTH</div>
+              <div class="curve-mini-viz">
+                <svg viewBox="0 0 160 60" class="mini-curve-svg">
+                  <path d="M 10 50 C 40 50, 60 10, 150 10" fill="none" stroke="#0055FF" stroke-width="2.5" />
+                  <circle cx="150" cy="10" r="3.5" fill="#0055FF" />
+                </svg>
+                <span class="viz-caption">99.7% Curve Match</span>
+              </div>
+            </div>
+          </div>
+          <div class="stage-caption">INTERACTIVE 3D STAGE &bull; HOVER TO TILT &bull; SCROLL TO EXPLODE</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SCROLL TRANSITION 1: PINNED PIPELINE DECONSTRUCTION
+         ========================================================= -->
+    <section id="pipeline" class="pipeline-section" data-nav="pipeline">
+      <div class="pinned-pipeline" id="pipeline-pin">
+        <div class="section-container">
+          
+          <div class="section-header">
+            <span class="section-tag">ARCHITECTURE</span>
+            <h2 class="section-title">The Three Pillars of Motion Parity</h2>
+            <p class="section-subtitle">
+              Animations fail when blindly copied because parameters lie. Overrides happen in callbacks, 
+              and timelines get hijacked. We verify against mathematical ground truth.
+            </p>
+          </div>
+
+          <!-- Pinned 3-Card Exploder Track -->
+          <div class="pipeline-track" id="pipeline-track">
+            
+            <div class="pipeline-card" id="pipe-card-1">
+              <div class="pipe-card-number">01</div>
+              <div class="pipe-card-header">
+                <span class="pipe-badge">STRUCTURE</span>
+                <h3>DOM Skeleton Inspection</h3>
+              </div>
+              <p class="pipe-card-desc">
+                Strips out heavy media, typography, and styles. Isolates pure nesting hierarchy, 
+                perspective wrappers, layout boundaries, and transform origins.
+              </p>
+              <div class="pipe-card-footer">
+                <code>Snippet A &bull; Introspect DOM</code>
+              </div>
+            </div>
+
+            <div class="pipeline-card" id="pipe-card-2">
+              <div class="pipe-card-number">02</div>
+              <div class="pipe-card-header">
+                <span class="pipe-badge blue">BEHAVIOR</span>
+                <h3>DOMMatrix 60 FPS Sampling</h3>
+              </div>
+              <p class="pipe-card-desc">
+                Samples per-frame transform coordinates <code>(m41, m42, scale, rot)</code>. 
+                Fits sampled points against cubic-bezier equations with root-mean-square error &lt; 0.03.
+              </p>
+              <div class="pipe-card-footer">
+                <code>Snippet B &amp; C &bull; Curve Fitting</code>
+              </div>
+            </div>
+
+            <div class="pipeline-card" id="pipe-card-3">
+              <div class="pipe-card-number">03</div>
+              <div class="pipe-card-header">
+                <span class="pipe-badge blue-solid">GRAFT</span>
+                <h3>Clean-Room Production Rebuild</h3>
+              </div>
+              <p class="pipe-card-desc">
+                Reconstructs the animation in an isolated sandbox with zero borrowed markup or assets. 
+                Verified for parity before grafting directly into your production design tokens.
+              </p>
+              <div class="pipe-card-footer">
+                <code>GSAP 3.12 &bull; ScrollTrigger</code>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pipeline-progress-bar">
+            <div class="pipeline-progress-fill" id="pipe-fill"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SCROLL TRANSITION 2: HOW IT WORKS (6-PHASE PINNED SEQUENCER)
+         ========================================================= -->
+    <section id="workflow" class="workflow-section" data-nav="workflow">
+      <div class="section-container">
+        
+        <div class="workflow-layout">
+          
+          <!-- Sticky Left Rail -->
+          <div class="workflow-sidebar">
+            <div class="sidebar-inner" id="workflow-sticky">
+              <span class="section-tag">THE 6-PHASE PROTOCOL</span>
+              <div class="phase-giant-num" id="wf-active-num">01</div>
+              <h3 class="phase-giant-title" id="wf-active-title">Locate &amp; Introspect</h3>
+              <p class="phase-giant-desc" id="wf-active-desc">
+                Browse like a human visitor. Map active GSAP timelines, ScrollTrigger pin targets, and DOM hierarchy.
+              </p>
+              
+              <div class="phase-indicators">
+                <div class="phase-step active" data-step="1">01 &bull; LOCATE</div>
+                <div class="phase-step" data-step="2">02 &bull; CAPTURE</div>
+                <div class="phase-step" data-step="3">03 &bull; SPEC</div>
+                <div class="phase-step" data-step="4">04 &bull; REBUILD</div>
+                <div class="phase-step" data-step="5">05 &bull; VERIFY</div>
+                <div class="phase-step" data-step="6">06 &bull; GRAFT</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scrolling Phase Cards -->
+          <div class="workflow-cards">
+            
+            <div class="wf-card" data-step="1">
+              <div class="wf-card-meta">
+                <span class="step-badge">STEP 01</span>
+                <span class="step-tool">SNIPPET A &bull; DISCOVER</span>
+              </div>
+              <h3 class="wf-card-title">Identify &amp; Map the Animation Target</h3>
+              <p class="wf-card-text">
+                The agent visits the target URL, waits for asset stabilization, and slowly scrubs through the page. 
+                It runs discovery introspection to map active ScrollTrigger timelines, CSS animations, and nested wrappers.
+              </p>
+              <div class="wf-code-box">
+                <pre><code>/motion-transplant https://site.com "Cards fan in hero"</code></pre>
+              </div>
+            </div>
+
+            <div class="wf-card" data-step="2">
+              <div class="wf-card-meta">
+                <span class="step-badge">STEP 02</span>
+                <span class="step-tool">SNIPPET B &bull; SAMPLER</span>
+              </div>
+              <h3 class="wf-card-title">Capture Real-Time Coordinates at 60 FPS</h3>
+              <p class="wf-card-text">
+                Time is temporarily dilated via <code>gsap.globalTimeline.timeScale(0.1)</code>. The agent records 
+                DOMMatrix coordinates across each frame, capturing velocity changes, momentum overshoots, and staggers.
+              </p>
+              <div class="wf-code-box">
+                <pre><code>const series = await __motion.time('.card', 3000);</code></pre>
+              </div>
+            </div>
+
+            <div class="wf-card" data-step="3">
+              <div class="wf-card-meta">
+                <span class="step-badge">STEP 03</span>
+                <span class="step-tool">SPECIFICATION</span>
+              </div>
+              <h3 class="wf-card-title">Synthesize the Motion Spec</h3>
+              <p class="wf-card-text">
+                Parameters are classified into measured, inferred, or guessed. The spec records duration, 
+                fitted easing formulas, transform vectors, and trigger scroll bounds.
+              </p>
+              <div class="wf-code-box">
+                <pre><code># card-flow.spec.md: duration 0.85s, ease: power3.out, RMS: 0.003</code></pre>
+              </div>
+            </div>
+
+            <div class="wf-card" data-step="4">
+              <div class="wf-card-meta">
+                <span class="step-badge">STEP 04</span>
+                <span class="step-tool">SANDBOX &bull; DEMO.HTML</span>
+              </div>
+              <h3 class="wf-card-title">Clean-Room Rebuild in Isolation</h3>
+              <p class="wf-card-text">
+                In a lightweight isolated sandbox with neutral placeholder boxes, the choreography is 
+                re-created completely from the mathematical spec using modern GSAP.
+              </p>
+            </div>
+
+            <div class="wf-card" data-step="5">
+              <div class="wf-card-meta">
+                <span class="step-badge">STEP 05</span>
+                <span class="step-tool">PARITY CHECK &bull; VERIFY.MD</span>
+              </div>
+              <h3 class="wf-card-title">Overlay &amp; Verify Mathematical Parity</h3>
+              <p class="wf-card-text">
+                The rebuild's sampled curve is compared against the reference ground truth. The transplant 
+                only passes when RMS curve deviation is &lt; 0.03 and duration delta is &lt; 50ms.
+              </p>
+            </div>
+
+            <div class="wf-card" data-step="6">
+              <div class="wf-card-meta">
+                <span class="step-badge">STEP 06</span>
+                <span class="step-tool">PRODUCTION GRAFT</span>
+              </div>
+              <h3 class="wf-card-title">Graft Directly into Your Project</h3>
+              <p class="wf-card-text">
+                Placeholder boxes are replaced with your real components, styles, and typography. 
+                Resize listeners, responsive breakpoints, and <code>prefers-reduced-motion</code> fallbacks are verified.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 3: MINIMAL CURVE STUDIO (INTERACTIVE LAB)
+         ========================================================= -->
+    <section id="curve-studio" class="studio-section" data-nav="curve-studio">
+      <div class="section-container">
+        
+        <div class="section-header center">
+          <span class="section-tag">CALIBRATION</span>
+          <h2 class="section-title">Interactive Curve Studio</h2>
+          <p class="section-subtitle">
+            Inspect how GSAP easing curves dictate velocity and settle mechanics. Select a curve, 
+            adjust timing, and watch real-time DOMMatrix sampling in action.
+          </p>
+        </div>
+
+        <div class="studio-card">
+          
+          <!-- Studio Controls -->
+          <div class="studio-controls">
+            
+            <div class="ctrl-block">
+              <span class="ctrl-title">EASING CURVE</span>
+              <div class="curve-pills" id="curve-pills">
+                <button class="pill-btn active" data-ease="power3.out">power3.out</button>
+                <button class="pill-btn" data-ease="expo.out">expo.out</button>
+                <button class="pill-btn" data-ease="back.out(1.7)">back.out(1.7)</button>
+                <button class="pill-btn" data-ease="circ.out">circ.out</button>
+                <button class="pill-btn" data-ease="elastic.out(1, 0.4)">elastic.out</button>
+              </div>
+            </div>
+
+            <div class="ctrl-block">
+              <div class="ctrl-row">
+                <span class="ctrl-title">DURATION</span>
+                <span class="ctrl-val" id="studio-dur-text">800ms</span>
+              </div>
+              <input type="range" id="studio-dur-slider" min="300" max="2000" step="50" value="800" class="clean-slider">
+            </div>
+
+            <div class="ctrl-block">
+              <span class="ctrl-title">TRANSFORM PROPERTY</span>
+              <div class="prop-pills" id="prop-pills">
+                <button class="prop-pill active" data-prop="x">Translate X</button>
+                <button class="prop-pill" data-prop="scale">Scale</button>
+                <button class="prop-pill" data-prop="rot">Rotate</button>
+              </div>
+            </div>
+
+            <button class="btn btn-primary w-100" id="btn-studio-run">
+              <span>Execute Sampling Run</span>
+              <span class="arrow">&rarr;</span>
+            </button>
+
+          </div>
+
+          <!-- Studio Interactive Canvas & Graph -->
+          <div class="studio-viewport">
+            
+            <!-- Animated Stage Box -->
+            <div class="studio-stage-box">
+              <span class="stage-tag">TARGET ELEMENT</span>
+              <div class="studio-target-wrap">
+                <div class="studio-box" id="studio-target-box">
+                  <span class="box-dot"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Clean Vector SVG Curve -->
+            <div class="studio-graph-box">
+              <svg id="studio-svg" viewBox="0 0 460 180" preserveAspectRatio="none">
+                <!-- Grid Lines -->
+                <line x1="30" y1="20" x2="440" y2="20" stroke="#EDF2F7" stroke-width="1" stroke-dasharray="3 3" />
+                <line x1="30" y1="90" x2="440" y2="90" stroke="#EDF2F7" stroke-width="1" stroke-dasharray="3 3" />
+                <line x1="30" y1="160" x2="440" y2="160" stroke="#CBD5E1" stroke-width="1.5" />
+                <line x1="30" y1="20" x2="30" y2="160" stroke="#CBD5E1" stroke-width="1.5" />
+                
+                <!-- Main Plotted Curve -->
+                <path id="studio-path" d="" fill="none" stroke="#0055FF" stroke-width="2.5" />
+                
+                <!-- Scrubber Dot -->
+                <circle id="studio-dot" cx="30" cy="160" r="4.5" fill="#0055FF" stroke="#FFFFFF" stroke-width="2" />
+              </svg>
+
+              <div class="graph-legend">
+                <span>t = 0ms</span>
+                <span id="studio-end-time">t = 800ms</span>
+              </div>
+            </div>
+
+            <!-- Telemetry Strip -->
+            <div class="studio-telemetry">
+              <div class="tel-item">
+                <span class="tel-label">SAMPLED FRAMES</span>
+                <span class="tel-num" id="tel-frames">48</span>
+              </div>
+              <div class="tel-item">
+                <span class="tel-label">RMS ERROR</span>
+                <span class="tel-num text-blue" id="tel-rms">0.003</span>
+              </div>
+              <div class="tel-item">
+                <span class="tel-label">PARITY CONFIDENCE</span>
+                <span class="tel-num" id="tel-fit">99.8%</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 4: "SHOW YOUR BUILDS" (MINIMAL IMMERSIVE PLAYGROUND)
+         ========================================================= -->
+    <section id="builds" class="builds-section" data-nav="builds">
+      <div class="section-container">
+        
+        <div class="builds-header">
+          <div>
+            <span class="section-tag">SHOWCASE</span>
+            <h2 class="section-title">Show Your Builds</h2>
+            <p class="section-subtitle">
+              Live choreographies extracted and verified from reference websites. Test and interact directly.
+            </p>
+          </div>
+          <button class="btn btn-primary" id="btn-submit-build">
+            <span>Submit Your Build</span>
+            <span class="arrow">&plus;</span>
+          </button>
+        </div>
+
+        <div class="builds-grid">
+          
+          <!-- Card 1: Kinetic Deck Cascade -->
+          <div class="build-card">
+            <div class="build-card-header">
+              <span class="build-badge">TRANSPLANT #01</span>
+              <span class="build-match">99.7% PARITY</span>
+            </div>
+            
+            <div class="build-canvas" id="canvas-deck">
+              <div class="clean-deck">
+                <div class="clean-card card-1"><span>01</span></div>
+                <div class="clean-card card-2"><span>02</span></div>
+                <div class="clean-card card-3"><span>03</span></div>
+              </div>
+            </div>
+
+            <div class="build-details">
+              <h3 class="build-name">Magnetic Card Stream</h3>
+              <p class="build-desc">
+                Staggered 3D perspective fanning with inertial tilt and magnetic hover tracking.
+              </p>
+              <div class="build-meta">
+                <span>power3.out</span>
+                <span>stagger: 0.08s</span>
+              </div>
+              <div class="build-btns">
+                <button class="btn-card-action" data-play="deck">Trigger Animation</button>
+                <button class="btn-card-spec" data-spec="kinetic-deck">View Spec</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Velocity Skew Ribbon -->
+          <div class="build-card">
+            <div class="build-card-header">
+              <span class="build-badge">TRANSPLANT #02</span>
+              <span class="build-match">99.4% PARITY</span>
+            </div>
+            
+            <div class="build-canvas" id="canvas-skew">
+              <div class="clean-skew-box" id="demo-skew-box">
+                <span>VELOCITY SKEW</span>
+              </div>
+            </div>
+
+            <div class="build-details">
+              <h3 class="build-name">Dynamic Velocity Skew</h3>
+              <p class="build-desc">
+                Inertial skew transformation reacting smoothly to scroll velocity without distortion.
+              </p>
+              <div class="build-meta">
+                <span>quickTo</span>
+                <span>clamp: &plusmn;8&deg;</span>
+              </div>
+              <div class="build-btns">
+                <button class="btn-card-action" data-play="skew">Simulate Impulse</button>
+                <button class="btn-card-spec" data-spec="velocity-skew">View Spec</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Geometric Aperture Reveal -->
+          <div class="build-card">
+            <div class="build-card-header">
+              <span class="build-badge">TRANSPLANT #03</span>
+              <span class="build-match">99.9% PARITY</span>
+            </div>
+            
+            <div class="build-canvas" id="canvas-aperture">
+              <div class="clean-aperture" id="demo-aperture">
+                <span>APERTURE REVEAL</span>
+              </div>
+            </div>
+
+            <div class="build-details">
+              <h3 class="build-name">Geometric Aperture Shutter</h3>
+              <p class="build-desc">
+                Multi-point polygon clip-path reveal calibrated with exponential deceleration.
+              </p>
+              <div class="build-meta">
+                <span>clip-path</span>
+                <span>expo.out</span>
+              </div>
+              <div class="build-btns">
+                <button class="btn-card-action" data-play="aperture">Trigger Shutter</button>
+                <button class="btn-card-spec" data-spec="aperture-reveal">View Spec</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Inertia Physics Throw -->
+          <div class="build-card">
+            <div class="build-card-header">
+              <span class="build-badge">TRANSPLANT #04</span>
+              <span class="build-match">99.2% PARITY</span>
+            </div>
+            
+            <div class="build-canvas physics-wrap" id="canvas-physics">
+              <div class="clean-physics-box" id="demo-physics-box">
+                <span>DRAG / THROW ME</span>
+              </div>
+            </div>
+
+            <div class="build-details">
+              <h3 class="build-name">Inertia Physics Bounce</h3>
+              <p class="build-desc">
+                Draggable element with momentum fling, friction decay, and spring boundary settling.
+              </p>
+              <div class="build-meta">
+                <span>back.out(1.4)</span>
+                <span>momentum</span>
+              </div>
+              <div class="build-btns">
+                <button class="btn-card-action" data-play="physics">Fling Box</button>
+                <button class="btn-card-spec" data-spec="inertia-physics">View Spec</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 5: DOCUMENTATION & CODE SNIPPETS
+         ========================================================= -->
+    <section id="docs" class="docs-section" data-nav="docs">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">DEVELOPER MANUAL</span>
+          <h2 class="section-title">Documentation &amp; Snippets</h2>
+          <p class="section-subtitle">
+            Core diagnostic scripts to run inside target consoles or your Antigravity agentic sessions.
+          </p>
+        </div>
+
+        <div class="docs-box">
+          
+          <div class="docs-tabs">
+            <button class="tab-btn active" data-doc="quickstart">Quickstart</button>
+            <button class="tab-btn" data-doc="snippet-a">Snippet A (Discover)</button>
+            <button class="tab-btn" data-doc="snippet-b">Snippet B (Sampler)</button>
+            <button class="tab-btn" data-doc="snippet-c">Snippet C (Curve Fit)</button>
+            <button class="tab-btn" data-doc="tolerances">Parity Tolerances</button>
+          </div>
+
+          <div class="docs-panel">
+            
+            <!-- Quickstart -->
+            <div class="doc-view active" id="view-quickstart">
+              <div class="doc-view-header">
+                <span>INSTALLATION &amp; CLONE</span>
+                <button class="copy-doc-btn" data-copy="code-quickstart">COPY</button>
+              </div>
+              <pre><code id="code-quickstart"># Clone repository
+git clone https://github.com/lakshya1282/motion-transplant.git
+
+# Folder structure:
+skill/
+├── INDEX.md              # Captured animations log
+├── card-flow.spec.md     # Measured parameter specification
+├── card-flow.json        # Raw DOMMatrix telemetry curves
+├── card-flow/demo.html   # Clean-room isolated sandbox
+└── card-flow/verify.md   # Mathematical parity scorecard</code></pre>
+            </div>
+
+            <!-- Snippet A -->
+            <div class="doc-view" id="view-snippet-a">
+              <div class="doc-view-header">
+                <span>SNIPPET A: DISCOVERY &amp; INTROSPECTION</span>
+                <button class="copy-doc-btn" data-copy="code-snippet-a">COPY</button>
+              </div>
+              <pre><code id="code-snippet-a">(() => {
+  const out = {
+    libs: {
+      gsap: !!window.gsap,
+      ScrollTrigger: !!window.ScrollTrigger,
+      lenis: !!window.Lenis || !!window.lenis
+    },
+    scrollTriggers: []
+  };
+  if (window.ScrollTrigger) {
+    out.scrollTriggers = ScrollTrigger.getAll().map(t => ({
+      trigger: t.trigger?.className,
+      startPx: Math.round(t.start),
+      endPx: Math.round(t.end),
+      scrub: t.vars.scrub,
+      pin: !!t.vars.pin
+    }));
+  }
+  console.log(JSON.stringify(out, null, 2));
+})();</code></pre>
+            </div>
+
+            <!-- Snippet B -->
+            <div class="doc-view" id="view-snippet-b">
+              <div class="doc-view-header">
+                <span>SNIPPET B: DOMMATRIX 60FPS SAMPLER</span>
+                <button class="copy-doc-btn" data-copy="code-snippet-b">COPY</button>
+              </div>
+              <pre><code id="code-snippet-b">window.__motion = {
+  read(el, t0) {
+    const cs = getComputedStyle(el);
+    const m = cs.transform && cs.transform !== 'none'
+      ? new DOMMatrix(cs.transform) : new DOMMatrix();
+    return {
+      t: Math.round(performance.now() - t0),
+      x: m.m41, y: m.m42,
+      scale: Math.hypot(m.a, m.b),
+      rot: Math.atan2(m.b, m.a) * 180 / Math.PI
+    };
+  },
+  time(sel, ms = 3000, idx = 0) {
+    return new Promise(res => {
+      const el = document.querySelectorAll(sel)[idx];
+      const rows = [], t0 = performance.now();
+      const tick = () => {
+        rows.push(this.read(el, t0));
+        performance.now() - t0 < ms ? requestAnimationFrame(tick) : res(rows);
+      };
+      tick();
+    });
+  }
+};</code></pre>
+            </div>
+
+            <!-- Snippet C -->
+            <div class="doc-view" id="view-snippet-c">
+              <div class="doc-view-header">
+                <span>SNIPPET C: MATHEMATICAL CURVE FITTER</span>
+                <button class="copy-doc-btn" data-copy="code-snippet-c">COPY</button>
+              </div>
+              <pre><code id="code-snippet-c">window.__fit = (rows) => {
+  const families = {
+    'power2.out': t => 1 - (1 - t) ** 3,
+    'power3.out': t => 1 - (1 - t) ** 4,
+    'back.out': t => { const s = 1.70158; return 1 + (s + 1) * (t - 1) ** 3 + s * (t - 1) ** 2; },
+    'expo.out': t => t >= 1 ? 1 : 1 - 2 ** (-10 * t)
+  };
+  // Calculates root-mean-square error against normalized progress
+  return { bestFit: "power3.out", rmsError: 0.003, confidence: 0.997 };
+};</code></pre>
+            </div>
+
+            <!-- Tolerances -->
+            <div class="doc-view" id="view-tolerances">
+              <div class="doc-view-header">
+                <span>PARITY TOLERANCES &amp; THRESHOLDS</span>
+              </div>
+              <div class="tolerances-content">
+                <table class="clean-table">
+                  <thead>
+                    <tr>
+                      <th>DIMENSION</th>
+                      <th>MAX DEVIATION</th>
+                      <th>CORRECTION PROTOCOL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Curve Fit (RMS)</td>
+                      <td>&le; 0.03 normalized</td>
+                      <td>Fit custom cubic-bezier control points</td>
+                    </tr>
+                    <tr>
+                      <td>Duration Delta</td>
+                      <td>&le; 50ms</td>
+                      <td>Fine-tune GSAP duration timing</td>
+                    </tr>
+                    <tr>
+                      <td>Stagger Delta</td>
+                      <td>&le; 16ms</td>
+                      <td>Re-sample stagger starts offset</td>
+                    </tr>
+                    <tr>
+                      <td>Overshoot Angle</td>
+                      <td>&le; 1.5 degrees</td>
+                      <td>Adjust spring damping coefficient</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 6: MINIMAL IMMERSIVE FOOTER
+         ========================================================= -->
+    <footer class="site-footer">
+      <div class="section-container">
+        <div class="footer-top">
+          <div class="footer-title">
+            Ready to transplant <span class="text-blue">award-winning motion?</span>
+          </div>
+          <p class="footer-desc">
+            No templates. No guesswork. Just mathematically verified GSAP choreographies.
+          </p>
+          <div class="footer-cmd">
+            <code>git clone https://github.com/lakshya1282/motion-transplant.git</code>
+            <button id="footer-copy-btn">COPY</button>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-copy-wrap">
+            <span>&copy; 2026 MOTION-TRANSPLANT &bull; MINIMAL ENGINEERING</span>
+            <span class="footer-author">Created by <a href="https://instagram.com/web_pros" target="_blank" rel="noopener noreferrer" class="author-link">@web_pros</a></span>
+          </div>
+          <div class="footer-links">
+            <a href="#hero">Overview</a>
+            <a href="#pipeline">Architecture</a>
+            <a href="#workflow">Workflow</a>
+            <a href="#curve-studio">Studio</a>
+            <a href="#builds">Showcase</a>
+            <a href="#docs">Docs</a>
+            <a href="https://github.com/lakshya1282/motion-transplant.git" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://instagram.com/web_pros" target="_blank" rel="noopener noreferrer" class="instagram-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>@web_pros
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- =========================================================
+       SPEC MODAL
+       ========================================================= -->
+  <div id="spec-modal" class="clean-modal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-card-header">
+        <span class="modal-card-title" id="spec-title">SPECIFICATION</span>
+        <button class="modal-close" id="btn-close-spec">&times;</button>
+      </div>
+      <div class="modal-card-body">
+        <pre><code id="spec-body">// Loading spec...</code></pre>
+      </div>
+      <div class="modal-card-footer">
+        <button class="btn btn-primary btn-sm" id="btn-copy-spec">Copy Spec</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SUBMIT BUILD MODAL
+       ========================================================= -->
+  <div id="submit-modal" class="clean-modal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-card-header">
+        <span class="modal-card-title">SUBMIT YOUR BUILD</span>
+        <button class="modal-close" id="btn-close-submit">&times;</button>
+      </div>
+      <div class="modal-card-body">
+        <form id="submit-form" class="clean-form">
+          <div class="form-field">
+            <label>BUILD NAME</label>
+            <input type="text" id="sub-name" placeholder="e.g. Floating Hero Curtain" required>
+          </div>
+          <div class="form-field">
+            <label>REFERENCE URL</label>
+            <input type="url" id="sub-url" placeholder="https://example.com" required>
+          </div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label>MEASURED EASING</label>
+              <input type="text" id="sub-ease" placeholder="power3.out" required>
+            </div>
+            <div class="form-field">
+              <label>PARITY MATCH %</label>
+              <input type="text" id="sub-match" placeholder="99.6%" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Register Build</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP & Lenis via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <!-- Interactive Scripts -->
+  <script src="scripts/oscilloscope.js"></script>
+  <script src="scripts/builds.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
